@@ -12,4 +12,4 @@ pluginManagement {
 		}
 	}
 }
-rootProject.name = 'chapter2'
+rootProject.name = 'spring-boot-in-action-ch02'
