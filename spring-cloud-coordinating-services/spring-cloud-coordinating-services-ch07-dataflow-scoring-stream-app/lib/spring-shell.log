@@ -1,0 +1,87 @@
+// dataflow 1.2.0.RELEASE log opened at 2020-04-18 11:24:05
+// dataflow 1.2.0.RELEASE log opened at 2020-04-18 11:25:41
+// dataflow 1.2.0.RELEASE log opened at 2020-04-18 11:30:59
+dataflow config server
+dataflow config server http://localhost:8888
+dataflow config server http://127.0.0.1:8888
+dataflow config server http://127.0.0.1:9393
+dataflow config server http://127.0.0.1:9000
+// dataflow 1.2.0.RELEASE log opened at 2020-04-18 11:38:49
+app list
+help
+exit
+// dataflow 1.2.0.RELEASE log closed at 2020-04-18 11:42:04
+// dataflow 1.2.0.RELEASE log opened at 2020-04-20 08:06:30
+app list
+// dataflow 1.2.0.RELEASE log opened at 2020-04-20 08:20:38
+// dataflow 1.2.0.RELEASE log opened at 2020-04-20 08:28:17
+app import --uri https://dataflow.spring.io/rabbitmq-maven-latest
+app list
+app info sink:file
+stream list
+// dataflow 1.2.0.RELEASE log opened at 2020-04-20 08:55:00
+help
+stream create pluralsight-spring-cloud-cs --definition 'http --port=8086 | file --directory=/home/osboxes/temp/pluralsight/spring-cloud/dataflow/dataflow-out --suffix=txt --name=output' 
+stream list
+stream deploy pluralsight-spring-cloud-cs
+stream create filestream1 --definition "file --directory=/home/osboxes/temp/pluralsight/spring-cloud/dataflow/dataflow-in --mode=lines | transform --expression=payload+' | processed=true' | output: file --directory=/home/osboxes/temp/pluralsight/spring-cloud/dataflow/dataflow-out --sufix=txt --name=output2"
+stream list
+stream deploy filestream1
+app import --uri https://dataflow.spring.io/task-maven-latest
+app list
+task create demotask --definition "timestamp --format=\MM-yy\"
+// dataflow 1.2.0.RELEASE log opened at 2020-04-20 09:42:21
+task list
+task launch demotask
+task list
+task execution list
+// dataflow 1.2.0.RELEASE log opened at 2020-04-20 10:48:37
+app import --uri https://dataflow.spring.io/rabbitmq-maven-latest
+stream create pluralsight-spring-cloud-cs --definition 'http --port=8086 | file --directory=/home/osboxes/temp/pluralsight/spring-cloud/dataflow/dataflow-out --suffix=txt --name=output'
+stream list
+// [failed] stream deploy pluralsigth-spring-cloud-cs
+// [failed] stream deploy pluralsigth-spring-cloud-cs
+stream list
+stream deploy pluralsight-spring-cloud-cs
+stream create filestream1 --definition "file --directory=/home/osboxes/temp/pluralsight/spring-cloud/dataflow/dataflow-in --mode=lines | transform --expression=payload+' | processed=true' | output: file --directory=/home/osboxes/temp/pluralsight/spring-cloud/dataflow/dataflow-out --sufix=txt --name=output2"
+stream deploy filestream1
+app import --uri https://dataflow.spring.io/task-maven-latest
+task create demotask --definition "timestamp --format=\MM-yy\"
+task list
+// dataflow 1.2.0.RELEASE log opened at 2020-04-20 10:59:39
+app list
+stream list
+task list
+app register --name fraudcheck --type processor --uri maven://spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app-0.0.1-SNAPSHOT.jar
+app list
+ app info processor:fraudcheck
+// [failed] app register --name fraudcheck --type processor --uri maven://spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app-0.0.1-SNAPSHOT.jar
+ app info processor:fraudcheck
+ app list
+ app info processor:fraudcheck
+app register --name fraudcheck --type processor --uri maven://spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app-0.0.1-SNAPSHOT.jar
+ app info processor:fraudcheck
+ app info processor:fraudcheck
+app register --name fraudcheck --type processor --uri maven://spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app-0.0.1-SNAPSHOT.jar
+// [failed] app register --name fraudcheck --type processor --uri maven://spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app-0.0.1-SNAPSHOT.jar
+ app info processor:fraudcheck
+ app info processor:fraudcheck
+app register --name fraudcheck --type processor --uri maven://spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app-0.0.1-SNAPSHOT.jar
+// [failed] app register --name fraudcheck --type processor --uri maven://spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app-0.0.1-SNAPSHOT.jar
+ app info processor:fraudcheck
+app register --name fraudcheck --type processor --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app:jar:0.0.1-SNAPSHOT.jar
+// [failed] app register --name fraudcheck --type processor --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app:jar:0.0.1-SNAPSHOT.jar
+ app info processor:fraudcheck
+app register --name fraudcheck --type processor --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app:jar:0.0.1-SNAPSHOT
+ app info processor:fraudcheck
+app register --name fraudcheck --type processor --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-scoring-stream-app:jar:0.0.1-SNAPSHOT
+ app info processor:fraudcheck
+// [failed] app register --name fraudcheck --type processor --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-task1:jar:0.0.1-SNAPSHOT
+app register --name task1 --type processor --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-task1:jar:0.0.1-SNAPSHOT
+app info processor:task1
+app register --name task1 --type task --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-task1:jar:0.0.1-SNAPSHOT
+app info task:task1
+app register --name task2 --type task --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-task2:jar:0.0.1-SNAPSHOT
+app info task:task2
+app register --name task3 --type task --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-task3:jar:0.0.1-SNAPSHOT
+app info task:task3
