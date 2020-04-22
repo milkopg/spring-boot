@@ -85,3 +85,4 @@ app register --name task2 --type task --uri maven://com.milko.training.spring.cl
 app info task:task2
 app register --name task3 --type task --uri maven://com.milko.training.spring.cloud:spring-cloud-coordinating-services-ch07-dataflow-task3:jar:0.0.1-SNAPSHOT
 app info task:task3
+exit
